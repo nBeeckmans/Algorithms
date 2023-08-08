@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Binary {
 
     public static <T extends Comparable<T>> int Search(ArrayList<T> list, T objectToFind) {
-        int first =0; 
+        int first = 0; 
         int last = list.size()-1;
         while( first < last) {
             int middle = (first + last) / 2; 
@@ -18,7 +18,6 @@ public class Binary {
                 first = -1; 
             }
         }
-
         return first; 
     }   
 }
