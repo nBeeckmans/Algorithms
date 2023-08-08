@@ -26,10 +26,11 @@ public class QuickSort{
                 lastIndex--;
             } while(list.get(lastIndex).compareTo(pivot) > 0);
             if (firstIndex < lastIndex) {
+                System.out.println(list.get(firstIndex) + " swap " + list.get(lastIndex) );
+
                 swap(list, firstIndex, lastIndex);
             }
         } 
-        System.out.println(list);
         return lastIndex; 
     }
     /**
