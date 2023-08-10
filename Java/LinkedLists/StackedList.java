@@ -25,7 +25,6 @@ public class StackedList <T extends Comparable<T>> {
     Element<T> lastElement = null ; 
     
     public StackedList() {
-
     }
 
     public void add(T element) {
@@ -54,7 +53,6 @@ public class StackedList <T extends Comparable<T>> {
         } else {
             firstElement = null; 
             lastElement = null;
-        }
-       
+        }  
     }
 }
