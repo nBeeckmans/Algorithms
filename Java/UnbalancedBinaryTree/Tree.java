@@ -3,22 +3,31 @@ package Java.UnbalancedBinaryTree;
 import java.util.ArrayList;
 
 public class Tree <T extends Comparable<T>> {
-    Node <T> firstElement;
+    Node rootNode;
 
-    protected class Node <T extends Comparable<T>>{
+    protected class Node {
         T value;
-        Node<T> leftNode; 
-        Node<T> rightNode; 
+        Node leftNode; 
+        Node rightNode; 
     }
 
-    public <T extends Comparable<T>> void giveSortedArray(ArrayList<Node<T>> list, Node<T> node){
-        giveSortedArray(list, node.leftNode);
-        list.add(node);
-        giveSortedArray(list, node.rightNode);
+    public void giveSortedArray(ArrayList<Node> list, Node node){
+        if (node != null ) {
+            giveSortedArray(list, node.leftNode);
+            list.add(node);
+            giveSortedArray(list, node.rightNode);
+        }
     }
 
-    public <T extends Comparable<T>> void add(Node<T> node) {
+    public void add(T valueToAdd) {
+        Node next = valueToAdd.compareTo(rootNode.value) > 0 
+                ? rootNode.leftNode 
+                : rootNode.rightNode;
+                
+        while (next != null) {
+            next = next.value.compareTo(valueToAdd) > 
 
+        }
     } 
     
 }
