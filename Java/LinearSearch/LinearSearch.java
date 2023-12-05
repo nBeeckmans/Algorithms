@@ -7,7 +7,8 @@ public class LinearSearch {
         boolean isNotFound = true;
         int index = 0; 
         while (isNotFound && index < list.size()){
-            isNotFound = list.get(index).equals(toFind);
+            isNotFound = !list.get(index).equals(toFind);
+            index++;
         }
         return isNotFound ? -1 : index; 
     }

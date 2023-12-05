@@ -14,9 +14,9 @@ public class Binary {
             } else {
                 first = middle + 1; 
             }
-            if (list.get(first).compareTo(objectToFind) != 0) {
-                first = -1; 
-            }
+        }
+        if (list.get(first).compareTo(objectToFind) != 0) {
+            first = -1;
         }
         return first; 
     }   
