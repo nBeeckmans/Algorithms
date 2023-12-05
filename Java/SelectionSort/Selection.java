@@ -6,15 +6,15 @@ public class Selection {
     public static <T extends Comparable<T>> void sort(ArrayList<T> list) {
         for (int i = 0; i < list.size() - 1; i++){
             T minimum = list.get(i);
+            int position = i;
             int j = i + 1;
             for (; j < list.size(); j++){
-                minimum = list.get(j).compareTo(minimum) < 0 
-                ? list.get(j) 
-                : minimum; 
+                if (list.get(j).compareTo(minimum) < 0){
+                    minimum = list.get(j);
+                    position =j;
+                }
             }
-            if (list.get(i).compareTo(minimum) > 0){
-                swap(list, i, j); 
-            }
+            swap(list, position, i);
         }
     }
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Bubble {
     public static <T extends Comparable<T>> void sort(ArrayList<T> list) {
         boolean isNotSorted = true;  
-        int lastIndex = list.size() - 2; 
+        int lastIndex = list.size() - 1;
         while (isNotSorted) {
             isNotSorted = false; 
             for (int i = 0; i < lastIndex; i ++) {
