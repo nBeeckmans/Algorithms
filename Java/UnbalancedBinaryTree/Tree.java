@@ -25,7 +25,7 @@ public class Tree <T extends Comparable<T>> {
                 : rootNode.rightNode;
                 
         while (next != null) {
-            next = next.value.compareTo(valueToAdd) > 
+            //next = next.value.compareTo(valueToAdd) >
 
         }
     } 

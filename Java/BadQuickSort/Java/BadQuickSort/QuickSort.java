@@ -9,8 +9,10 @@ public class QuickSort{
     public static <T extends Comparable<T>> void quickSort(ArrayList<T> list, int firstIndex, int lastIndex ){
         if ( firstIndex < lastIndex) {
             int nextMiddleIndex = sorting(list, firstIndex, lastIndex); 
-            quickSort(list,firstIndex, nextMiddleIndex); 
-            quickSort(list, nextMiddleIndex + 1, lastIndex); 
+            quickSort(list,firstIndex, nextMiddleIndex);
+            System.out.println(list);
+            quickSort(list, nextMiddleIndex + 1, lastIndex);
+            System.out.println(list);
         }
     }
     /**
