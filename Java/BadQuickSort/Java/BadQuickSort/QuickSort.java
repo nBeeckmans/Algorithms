@@ -34,7 +34,9 @@ public class QuickSort{
 
                 swap(list, firstIndex, lastIndex);
             }
-        } 
+        }
+        System.out.println("On coupe a : " + list.get(lastIndex));
+        System.out.println(list);
         return lastIndex; 
     }
     /**
