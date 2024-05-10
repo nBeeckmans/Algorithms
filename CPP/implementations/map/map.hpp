@@ -1,8 +1,19 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
+#include <optional>
+#include <variant>
 
-template<class T>
+template <typename T> 
+class Bucket;
+template <typename T>
+class Element;
+
+template <typename T>
+long unsigned int gethash(T element);
+
+
+template<typename K, typename V>
 class Map 
 {
   public: 
@@ -10,39 +21,42 @@ class Map
     Map(int numberOfBuckets);
     Map(const Map& map);
     ~Map();
-    bool addElement(T element); 
-    bool hasElement(T element);
-    bool removeElement(T element);
+    bool addKeyValue(K key,V value); 
+    bool hasKey(K key);
+    std::optional<V>* removeKey(K key);
 
   private:
     int numberOfBuckets;   
+    Bucket<V> *buckets;
 };
 
-template <class T>
+template <typename T>
 class Element  
 {
-  private:
-    Element(int key, T value);
+  public :  
+    Element(unsigned long int key, T value);
     Element(const Element& element);
     ~Element();
-    int key;
+    long unsigned int key;
     T value;
     Element *next;
-
-  friend class Map<T>;
+    Element *previous;
 };
 
-template <class T> 
+template <typename V> 
 class Bucket 
 {
-  private: 
-    Bucket(int number);
+  public: 
+    Bucket();
     Bucket(const Bucket& bucket);
+    bool addElementToBucket(Element<V>* element);
+    bool hasElement(unsigned long int hash);
+    std::optional<V>* removeElement(unsigned long int hash);
     ~Bucket();
     int bucketNumber;
-    Element<T>* firstElement;
-
-  friend class Map<T>;
+    Element<V>* firstElement;
 };
+
+
 
 #endif

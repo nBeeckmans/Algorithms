@@ -1,25 +1,25 @@
-#include "main.hpp"
+#include "map.hpp"
 #include <string>
 #include <iostream>
 
 int main(void) 
 {
-  Map<std::string> *map = new Map<std::string>();
-  map->addElement("I");
-  map->addElement("ate");
-  map->addElement("apples");
-  if (map->addElement("apples")) // this implementation of map doesnt add already existing elements
+  Map<char*, double> *map = new Map<char*, double>();
+  map->addKeyValue("I", 0.05);
+
+  map->addKeyValue("ate",0.022);
+  map->addKeyValue("apples",1.123);
+  if (map->addKeyValue("apples",1231515)) // this implementation of map doesnt add already existing elements
   {
     std::cout << "apples already exists in map" << std::endl;
   }
-  if (!map->hasElement("pears"))
+  if (!map->hasKey("pears"))
   {
     std::cout << "pears doesnt exists in map" << std::endl;
   }
-  if (!map->removeElement("cherry")) 
+  if (map->removeKey("cherry")->has_value()) 
   {
     std::cout << "cherry doesnt exists in map" << std::endl;
   }
- 
   return 0;
 }
